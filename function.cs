@@ -4,6 +4,19 @@ namespace NSCmusical
     {
         List<int> notes = new List<int>();
 
+        public void reset_color()
+        {
+            this.key0.BackColor = System.Drawing.Color.White;
+            this.key1.BackColor = System.Drawing.Color.Black;
+            this.key2.BackColor = System.Drawing.Color.White;
+            this.key3.BackColor = System.Drawing.Color.Black;
+            this.key4.BackColor = System.Drawing.Color.White;
+            this.key5.BackColor = System.Drawing.Color.Black;
+            this.key6.BackColor = System.Drawing.Color.White;
+            this.key7.BackColor = System.Drawing.Color.Black;
+            this.key8.BackColor = System.Drawing.Color.White;
+        }
+
         public Form1()
         {
             InitializeComponent();
@@ -24,30 +37,16 @@ namespace NSCmusical
         {
             notes.Add(0);
             notes.Add(100);
+            reset_color();
             this.key0.BackColor = System.Drawing.Color.Green;
-            this.key1.BackColor = System.Drawing.Color.Black;
-            this.key2.BackColor = System.Drawing.Color.White;
-            this.key3.BackColor = System.Drawing.Color.Black;
-            this.key4.BackColor = System.Drawing.Color.White;
-            this.key5.BackColor = System.Drawing.Color.Black;
-            this.key6.BackColor = System.Drawing.Color.White;
-            this.key7.BackColor = System.Drawing.Color.Black;
-            this.key8.BackColor = System.Drawing.Color.White;
         }
 
         private void key1_Click(object sender, EventArgs e)
         {
             notes.Add(1);
             notes.Add(100);
-            this.key0.BackColor = System.Drawing.Color.White;
+            reset_color();
             this.key1.BackColor = System.Drawing.Color.Green;
-            this.key2.BackColor = System.Drawing.Color.White;
-            this.key3.BackColor = System.Drawing.Color.Black;
-            this.key4.BackColor = System.Drawing.Color.White;
-            this.key5.BackColor = System.Drawing.Color.Black;
-            this.key6.BackColor = System.Drawing.Color.White;
-            this.key7.BackColor = System.Drawing.Color.Black;
-            this.key8.BackColor = System.Drawing.Color.White;
         }
 
         
@@ -56,104 +55,55 @@ namespace NSCmusical
         {
             notes.Add(2);
             notes.Add(100);
-            this.key0.BackColor = System.Drawing.Color.White;
-            this.key1.BackColor = System.Drawing.Color.Black;
+            reset_color();
             this.key2.BackColor = System.Drawing.Color.Green;
-            this.key3.BackColor = System.Drawing.Color.Black;
-            this.key4.BackColor = System.Drawing.Color.White;
-            this.key5.BackColor = System.Drawing.Color.Black;
-            this.key6.BackColor = System.Drawing.Color.White;
-            this.key7.BackColor = System.Drawing.Color.Black;
-            this.key8.BackColor = System.Drawing.Color.White;
         }
 
         private void key3_Click(object sender, EventArgs e)
         {
             notes.Add(3);
             notes.Add(100);
-            this.key0.BackColor = System.Drawing.Color.White;
-            this.key1.BackColor = System.Drawing.Color.Black;
-            this.key2.BackColor = System.Drawing.Color.White;
+            reset_color();
             this.key3.BackColor = System.Drawing.Color.Green;
-            this.key4.BackColor = System.Drawing.Color.White;
-            this.key5.BackColor = System.Drawing.Color.Black;
-            this.key6.BackColor = System.Drawing.Color.White;
-            this.key7.BackColor = System.Drawing.Color.Black;
-            this.key8.BackColor = System.Drawing.Color.White;
         }
 
         private void key4_Click(object sender, EventArgs e)
         {
             notes.Add(4);
             notes.Add(100);
-            this.key0.BackColor = System.Drawing.Color.White;
-            this.key1.BackColor = System.Drawing.Color.Black;
-            this.key2.BackColor = System.Drawing.Color.White;
-            this.key3.BackColor = System.Drawing.Color.Black;
+            reset_color();
             this.key4.BackColor = System.Drawing.Color.Green;
-            this.key5.BackColor = System.Drawing.Color.Black;
-            this.key6.BackColor = System.Drawing.Color.White;
-            this.key7.BackColor = System.Drawing.Color.Black;
-            this.key8.BackColor = System.Drawing.Color.White;
         }
 
         private void key5_Click(object sender, EventArgs e)
         {
             notes.Add(5);
             notes.Add(100);
-            this.key0.BackColor = System.Drawing.Color.White;
-            this.key1.BackColor = System.Drawing.Color.Black;
-            this.key2.BackColor = System.Drawing.Color.White;
-            this.key3.BackColor = System.Drawing.Color.Black;
-            this.key4.BackColor = System.Drawing.Color.White;
+            reset_color();
             this.key5.BackColor = System.Drawing.Color.Green;
-            this.key6.BackColor = System.Drawing.Color.White;
-            this.key7.BackColor = System.Drawing.Color.Black;
-            this.key8.BackColor = System.Drawing.Color.White;
         }
 
         private void key6_Click(object sender, EventArgs e)
         {
             notes.Add(6);
             notes.Add(100);
-            this.key0.BackColor = System.Drawing.Color.White;
-            this.key1.BackColor = System.Drawing.Color.Black;
-            this.key2.BackColor = System.Drawing.Color.White;
-            this.key3.BackColor = System.Drawing.Color.Black;
-            this.key4.BackColor = System.Drawing.Color.White;
-            this.key5.BackColor = System.Drawing.Color.Black;
+            reset_color();
             this.key6.BackColor = System.Drawing.Color.Green;
-            this.key7.BackColor = System.Drawing.Color.Black;
-            this.key8.BackColor = System.Drawing.Color.White;
         }
 
         private void key7_Click(object sender, EventArgs e)
         {
             notes.Add(7);
             notes.Add(100);
-            this.key0.BackColor = System.Drawing.Color.White;
-            this.key1.BackColor = System.Drawing.Color.Black;
-            this.key2.BackColor = System.Drawing.Color.White;
-            this.key3.BackColor = System.Drawing.Color.Black;
-            this.key4.BackColor = System.Drawing.Color.White;
-            this.key5.BackColor = System.Drawing.Color.Black;
-            this.key6.BackColor = System.Drawing.Color.White;
+            reset_color();
             this.key7.BackColor = System.Drawing.Color.Green;
-            this.key8.BackColor = System.Drawing.Color.White;
         }
 
         private void key8_Click(object sender, EventArgs e)
         {
             notes.Add(8);
             notes.Add(100);
-            this.key0.BackColor = System.Drawing.Color.White;
-            this.key1.BackColor = System.Drawing.Color.Black;
-            this.key2.BackColor = System.Drawing.Color.White;
-            this.key3.BackColor = System.Drawing.Color.Black;
-            this.key4.BackColor = System.Drawing.Color.White;
-            this.key5.BackColor = System.Drawing.Color.Black;
-            this.key6.BackColor = System.Drawing.Color.White;
-            this.key7.BackColor = System.Drawing.Color.Black;
+            reset_color();
             this.key8.BackColor = System.Drawing.Color.Green;
         }
     }
