@@ -2,14 +2,16 @@ using Melanchall.DryWetMidi.Core;
 using Melanchall.DryWetMidi.Interaction;
 using FuzzySharp;
 using Melanchall.DryWetMidi.Multimedia;
+using System.IO.Ports;
 
-namespace musical_synthesizer
+namespace NSCmusical
 {
     public partial class Form1 : Form
     {
         List<int> notes = new List<int>();
 
         private static Playback _playback;
+        static SerialPort _serialPort;
 
 
         public void reset_color()
@@ -79,39 +81,36 @@ namespace musical_synthesizer
 
         public string get_midifile(string result)
         {
-            string[] files = Directory.GetFiles(@"C:\Users\Admin\source\repos\musical synthesizer\songfiles");
+            string[] files = Directory.GetFiles(@"C:\Users\rites\source\repos\NSCmusical\songfiles");
 
             System.Diagnostics.Debug.WriteLine("Total midi files = " + files.Count());
             string unknown_notes = result;
             int c = 0;
-            var lines = File.ReadAllLines(@"C:\Users\Admin\source\repos\musical synthesizer\notes_array.txt");
+            var lines = File.ReadAllLines(@"C:\Users\rites\source\repos\NSCmusical\notes_array.txt");
             int max = 0;
             int index = 0;
             foreach (var line in lines)
             {
                 int v = Fuzz.PartialRatio(unknown_notes, line);
-                //Console.WriteLine(c+" = "+v);
                 if (v > max)
                 {
                     max = v;
                     index = c;
                 }
-                //Console.WriteLine("Max = " + max);
-                //Console.WriteLine("Index = " + index);
                 if (c == files.Count() - 1) { break; }
                 c++;
             }
-            //Console.WriteLine(c);
             System.Diagnostics.Debug.WriteLine("Closest Match = " + files[index]);
-            
-            MessageBox.Show("Playing: " + files[index]);
+
             System.Diagnostics.Debug.WriteLine("Playing: " + files[index]);
+
+            MessageBox.Show("Playing: " + files[index]);
+
             var midiFile = MidiFile.Read(files[index]);
 
             var outputDevice = OutputDevice.GetByName("Microsoft GS Wavetable Synth");
 
             _playback = midiFile.GetPlayback(outputDevice);
-            // _playback.NotesPlaybackStarted += OnNotesPlaybackStarted;
             _playback.Start();
 
             SpinWait.SpinUntil(() => !_playback.IsRunning);
@@ -127,13 +126,15 @@ namespace musical_synthesizer
         public Form1()
         {
             InitializeComponent();
+            _serialPort = new SerialPort("COM3", 9600);
+            _serialPort.Open();
         }
         private void button1_Click(object sender, EventArgs e)
         {
             string result = "";
             foreach (int i in notes)
             {
-                result += i.ToString();
+                result += i.ToString() + " ";
             }
 
             MessageBox.Show(result);
@@ -144,6 +145,7 @@ namespace musical_synthesizer
             notes.Clear();
 
             MessageBox.Show(final_note);
+            _serialPort.Write(final_note);
         }
 
         private void key0_Click(object sender, EventArgs e)
