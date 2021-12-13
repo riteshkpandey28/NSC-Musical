@@ -83,7 +83,6 @@ namespace NSCmusical
         {
             string[] files = Directory.GetFiles(@"C:\Users\rites\source\repos\NSCmusical\songfiles");
 
-            System.Diagnostics.Debug.WriteLine("Total midi files = " + files.Count());
             string unknown_notes = result;
             int c = 0;
             var lines = File.ReadAllLines(@"C:\Users\rites\source\repos\NSCmusical\notes_array.txt");
@@ -100,33 +99,16 @@ namespace NSCmusical
                 if (c == files.Count() - 1) { break; }
                 c++;
             }
-            System.Diagnostics.Debug.WriteLine("Closest Match = " + files[index]);
 
-            System.Diagnostics.Debug.WriteLine("Playing: " + files[index]);
+            AutoClosingMessageBox.Show(files[index], "Playing", 3000);
 
-            MessageBox.Show("Playing: " + files[index]);
-
-            var midiFile = MidiFile.Read(files[index]);
-
-            var outputDevice = OutputDevice.GetByName("Microsoft GS Wavetable Synth");
-
-            _playback = midiFile.GetPlayback(outputDevice);
-            _playback.Start();
-
-            SpinWait.SpinUntil(() => !_playback.IsRunning);
-
-            System.Diagnostics.Debug.WriteLine("Playback stopped or finished.");
-
-            outputDevice.Dispose();
-            _playback.Dispose();
-
-            return lines[index];
+            return lines[index] ;
         }
 
         public Form1()
         {
             InitializeComponent();
-            _serialPort = new SerialPort("COM3", 9600);
+            _serialPort = new SerialPort("COM4", 9600);
             _serialPort.Open();
         }
         private void button1_Click(object sender, EventArgs e)
@@ -136,441 +118,438 @@ namespace NSCmusical
             {
                 result += i.ToString() + " ";
             }
-
-            MessageBox.Show(result);
-            string final_note = get_midifile(result);
-
-            System.Diagnostics.Debug.WriteLine(final_note);
+            AutoClosingMessageBox.Show(result, "Entered Note", 3000);
+            string final_music = get_midifile(result);
+            AutoClosingMessageBox.Show(final_music, "Final Note", 3000);
 
             notes.Clear();
 
-            MessageBox.Show(final_note);
-            _serialPort.Write(final_note);
+            _serialPort.Write(final_music);
         }
 
         private void key0_Click(object sender, EventArgs e)
         {
-            notes.Add(0);
+            notes.Add(0 + 21);
             reset_color();
             this.key0.BackColor = System.Drawing.Color.Green;
         }
 
         private void key1_Click(object sender, EventArgs e)
         {
-            notes.Add(1);
+            notes.Add(1 + 21);
             reset_color();
             this.key1.BackColor = System.Drawing.Color.Green;
         }
 
         private void key2_Click(object sender, EventArgs e)
         {
-            notes.Add(2);
+            notes.Add(2 + 21);
             reset_color();
             this.key2.BackColor = System.Drawing.Color.Green;
         }
 
         private void key3_Click(object sender, EventArgs e)
         {
-            notes.Add(3);
+            notes.Add(3 + 21);
             reset_color();
             this.key3.BackColor = System.Drawing.Color.Green;
         }
 
         private void key4_Click(object sender, EventArgs e)
         {
-            notes.Add(4);
+            notes.Add(4 + 21);
             reset_color();
             this.key4.BackColor = System.Drawing.Color.Green;
         }
 
         private void key5_Click(object sender, EventArgs e)
         {
-            notes.Add(5);
+            notes.Add(5 + 21);
             reset_color();
             this.key5.BackColor = System.Drawing.Color.Green;
         }
 
         private void key6_Click(object sender, EventArgs e)
         {
-            notes.Add(6);
+            notes.Add(6 + 21);
             reset_color();
             this.key6.BackColor = System.Drawing.Color.Green;
         }
 
         private void key7_Click(object sender, EventArgs e)
         {
-            notes.Add(7);
+            notes.Add(7 + 21);
             reset_color();
             this.key7.BackColor = System.Drawing.Color.Green;
         }
 
         private void key8_Click(object sender, EventArgs e)
         {
-            notes.Add(8);
+            notes.Add(8 + 21);
             reset_color();
             this.key8.BackColor = System.Drawing.Color.Green;
         }
 
         private void key9_Click(object sender, EventArgs e)
         {
-            notes.Add(9);
+            notes.Add(9 + 21);
             reset_color();
             this.key9.BackColor = System.Drawing.Color.Green;
         }
 
         private void key10_Click(object sender, EventArgs e)
         {
-            notes.Add(10);
+            notes.Add(10 + 21);
             reset_color();
             this.key10.BackColor = System.Drawing.Color.Green;
         }
 
         private void key11_Click(object sender, EventArgs e)
         {
-            notes.Add(11);
+            notes.Add(11 + 21);
             reset_color();
             this.key11.BackColor = System.Drawing.Color.Green;
         }
 
         private void key12_Click(object sender, EventArgs e)
         {
-            notes.Add(12);
+            notes.Add(12 + 21);
             reset_color();
             this.key12.BackColor = System.Drawing.Color.Green;
         }
 
         private void key13_Click(object sender, EventArgs e)
         {
-            notes.Add(13);
+            notes.Add(13 + 21);
             reset_color();
             this.key13.BackColor = System.Drawing.Color.Green;
         }
 
         private void key14_Click(object sender, EventArgs e)
         {
-            notes.Add(14);
+            notes.Add(14 + 21);
             reset_color();
             this.key14.BackColor = System.Drawing.Color.Green;
         }
 
         private void key15_Click(object sender, EventArgs e)
         {
-            notes.Add(15);
+            notes.Add(15 + 21);
             reset_color();
             this.key15.BackColor = System.Drawing.Color.Green;
         }
 
         private void key16_Click(object sender, EventArgs e)
         {
-            notes.Add(16);
+            notes.Add(16 + 21);
             reset_color();
             this.key16.BackColor = System.Drawing.Color.Green;
         }
 
         private void key17_Click(object sender, EventArgs e)
         {
-            notes.Add(17);
+            notes.Add(17 + 21);
             reset_color();
             this.key17.BackColor = System.Drawing.Color.Green;
         }
 
         private void key18_Click(object sender, EventArgs e)
         {
-            notes.Add(18);
+            notes.Add(18 + 21);
             reset_color();
             this.key18.BackColor = System.Drawing.Color.Green;
         }
 
         private void key19_Click(object sender, EventArgs e)
         {
-            notes.Add(19);
+            notes.Add(19 + 21);
             reset_color();
             this.key19.BackColor = System.Drawing.Color.Green;
         }
 
         private void key20_Click(object sender, EventArgs e)
         {
-            notes.Add(20);
+            notes.Add(20 + 21);
             reset_color();
             this.key20.BackColor = System.Drawing.Color.Green;
         }
 
         private void key21_Click(object sender, EventArgs e)
         {
-            notes.Add(21);
+            notes.Add(21 + 21);
             reset_color();
             this.key21.BackColor = System.Drawing.Color.Green;
         }
 
         private void key22_Click(object sender, EventArgs e)
         {
-            notes.Add(22);
+            notes.Add(22 + 21);
             reset_color();
             this.key22.BackColor = System.Drawing.Color.Green;
         }
 
         private void key23_Click(object sender, EventArgs e)
         {
-            notes.Add(23);
+            notes.Add(23 + 21);
             reset_color();
             this.key23.BackColor = System.Drawing.Color.Green;
         }
 
         private void key24_Click(object sender, EventArgs e)
         {
-            notes.Add(24);
+            notes.Add(24 + 21);
             reset_color();
             this.key24.BackColor = System.Drawing.Color.Green;
         }
 
         private void key25_Click(object sender, EventArgs e)
         {
-            notes.Add(25);
+            notes.Add(25 + 21);
             reset_color();
             this.key25.BackColor = System.Drawing.Color.Green;
         }
 
         private void key26_Click(object sender, EventArgs e)
         {
-            notes.Add(26);
+            notes.Add(26 + 21);
             reset_color();
             this.key26.BackColor = System.Drawing.Color.Green;
         }
 
         private void key27_Click(object sender, EventArgs e)
         {
-            notes.Add(27);
+            notes.Add(27 + 21);
             reset_color();
             this.key27.BackColor = System.Drawing.Color.Green;
         }
 
         private void key28_Click(object sender, EventArgs e)
         {
-            notes.Add(28);
+            notes.Add(28 + 21);
             reset_color();
             this.key28.BackColor = System.Drawing.Color.Green;
         }
 
         private void key29_Click(object sender, EventArgs e)
         {
-            notes.Add(29);
+            notes.Add(29 + 21);
             reset_color();
             this.key29.BackColor = System.Drawing.Color.Green;
         }
 
         private void key30_Click(object sender, EventArgs e)
         {
-            notes.Add(30);
+            notes.Add(30 + 21);
             reset_color();
             this.key30.BackColor = System.Drawing.Color.Green;
         }
 
         private void key31_Click(object sender, EventArgs e)
         {
-            notes.Add(31);
+            notes.Add(31 + 21);
             reset_color();
             this.key31.BackColor = System.Drawing.Color.Green;
         }
 
         private void key32_Click(object sender, EventArgs e)
         {
-            notes.Add(32);
+            notes.Add(32 + 21);
             reset_color();
             this.key32.BackColor = System.Drawing.Color.Green;
         }
 
         private void key33_Click(object sender, EventArgs e)
         {
-            notes.Add(33);
+            notes.Add(33 + 21);
             reset_color();
             this.key33.BackColor = System.Drawing.Color.Green;
         }
 
         private void key34_Click(object sender, EventArgs e)
         {
-            notes.Add(34);
+            notes.Add(34 + 21);
             reset_color();
             this.key34.BackColor = System.Drawing.Color.Green;
         }
 
         private void key35_Click(object sender, EventArgs e)
         {
-            notes.Add(35);
+            notes.Add(35 + 21);
             reset_color();
             this.key35.BackColor = System.Drawing.Color.Green;
         }
 
         private void key36_Click(object sender, EventArgs e)
         {
-            notes.Add(36);
+            notes.Add(36 + 21);
             reset_color();
             this.key36.BackColor = System.Drawing.Color.Green;
         }
 
         private void key37_Click(object sender, EventArgs e)
         {
-            notes.Add(37);
+            notes.Add(37 + 21);
             reset_color();
             this.key37.BackColor = System.Drawing.Color.Green;
         }
 
         private void key38_Click(object sender, EventArgs e)
         {
-            notes.Add(38);
+            notes.Add(38 + 21);
             reset_color();
             this.key38.BackColor = System.Drawing.Color.Green;
         }
 
         private void key39_Click(object sender, EventArgs e)
         {
-            notes.Add(39);
+            notes.Add(39 + 21);
             reset_color();
             this.key39.BackColor = System.Drawing.Color.Green;
         }
 
         private void key40_Click(object sender, EventArgs e)
         {
-            notes.Add(40);
+            notes.Add(40 + 21);
             reset_color();
             this.key40.BackColor = System.Drawing.Color.Green;
         }
 
         private void key41_Click(object sender, EventArgs e)
         {
-            notes.Add(41);
+            notes.Add(41 + 21);
             reset_color();
             this.key41.BackColor = System.Drawing.Color.Green;
         }
 
         private void key42_Click(object sender, EventArgs e)
         {
-            notes.Add(42);
+            notes.Add(42 + 21);
             reset_color();
             this.key42.BackColor = System.Drawing.Color.Green;
         }
 
         private void key43_Click(object sender, EventArgs e)
         {
-            notes.Add(43);
+            notes.Add(43 + 21);
             reset_color();
             this.key43.BackColor = System.Drawing.Color.Green;
         }
 
         private void key44_Click(object sender, EventArgs e)
         {
-            notes.Add(44);
+            notes.Add(44 + 21);
             reset_color();
             this.key44.BackColor = System.Drawing.Color.Green;
         }
 
         private void key45_Click(object sender, EventArgs e)
         {
-            notes.Add(45);
+            notes.Add(45 + 21);
             reset_color();
             this.key45.BackColor = System.Drawing.Color.Green;
         }
 
         private void key46_Click(object sender, EventArgs e)
         {
-            notes.Add(46);
+            notes.Add(46 + 21);
             reset_color();
             this.key46.BackColor = System.Drawing.Color.Green;
         }
 
         private void key47_Click(object sender, EventArgs e)
         {
-            notes.Add(47);
+            notes.Add(47 + 21);
             reset_color();
             this.key47.BackColor = System.Drawing.Color.Green;
         }
 
         private void key48_Click(object sender, EventArgs e)
         {
-            notes.Add(48);
+            notes.Add(48 + 21);
             reset_color();
             this.key48.BackColor = System.Drawing.Color.Green;
         }
 
         private void key49_Click(object sender, EventArgs e)
         {
-            notes.Add(49);
+            notes.Add(49 + 21);
             reset_color();
             this.key49.BackColor = System.Drawing.Color.Green;
         }
 
         private void key50_Click(object sender, EventArgs e)
         {
-            notes.Add(50);
+            notes.Add(50 + 21);
             reset_color();
             this.key50.BackColor = System.Drawing.Color.Green;
         }
 
         private void key51_Click(object sender, EventArgs e)
         {
-            notes.Add(51);
+            notes.Add(51 + 21);
             reset_color();
             this.key51.BackColor = System.Drawing.Color.Green;
         }
 
         private void key52_Click(object sender, EventArgs e)
         {
-            notes.Add(52);
+            notes.Add(52 + 21);
             reset_color();
             this.key52.BackColor = System.Drawing.Color.Green;
         }
 
         private void key53_Click(object sender, EventArgs e)
         {
-            notes.Add(53);
+            notes.Add(53 + 21);
             reset_color();
             this.key53.BackColor = System.Drawing.Color.Green;
         }
 
         private void key54_Click(object sender, EventArgs e)
         {
-            notes.Add(54);
+            notes.Add(54 + 21);
             reset_color();
             this.key54.BackColor = System.Drawing.Color.Green;
         }
 
         private void key55_Click(object sender, EventArgs e)
         {
-            notes.Add(55);
+            notes.Add(55 + 21);
             reset_color();
             this.key55.BackColor = System.Drawing.Color.Green;
         }
 
         private void key56_Click(object sender, EventArgs e)
         {
-            notes.Add(56);
+            notes.Add(56 + 21);
             reset_color();
             this.key56.BackColor = System.Drawing.Color.Green;
         }
 
         private void key57_Click(object sender, EventArgs e)
         {
-            notes.Add(57);
+            notes.Add(57 + 21);
             reset_color();
             this.key57.BackColor = System.Drawing.Color.Green;
         }
 
         private void key58_Click(object sender, EventArgs e)
         {
-            notes.Add(58);
+            notes.Add(58 + 21);
             reset_color();
             this.key58.BackColor = System.Drawing.Color.Green;
         }
 
         private void key59_Click(object sender, EventArgs e)
         {
-            notes.Add(59);
+            notes.Add(59 + 21);
             reset_color();
             this.key59.BackColor = System.Drawing.Color.Green;
         }
 
         private void key60_Click(object sender, EventArgs e)
         {
-            notes.Add(60);
+            notes.Add(60 + 21);
             reset_color();
             this.key60.BackColor = System.Drawing.Color.Green;
         }
