@@ -4,7 +4,7 @@ using FuzzySharp;
 using Melanchall.DryWetMidi.Multimedia;
 using System.IO.Ports;
 
-namespace NSCmusical
+namespace musical_synthesizer
 {
     public partial class Form1 : Form
     {
@@ -81,11 +81,12 @@ namespace NSCmusical
 
         public string get_midifile(string result)
         {
-            string[] files = Directory.GetFiles(@"C:\Users\rites\source\repos\NSCmusical\songfiles");
+            string[] files = Directory.GetFiles(@"C:\Users\Admin\source\repos\musical synthesizer\songfiles");
 
+            System.Diagnostics.Debug.WriteLine("Total midi files = " + files.Count());
             string unknown_notes = result;
             int c = 0;
-            var lines = File.ReadAllLines(@"C:\Users\rites\source\repos\NSCmusical\notes_array.txt");
+            var lines = File.ReadAllLines(@"C:\Users\Admin\source\repos\musical synthesizer\notes_array.txt");
             int max = 0;
             int index = 0;
             foreach (var line in lines)
@@ -99,10 +100,31 @@ namespace NSCmusical
                 if (c == files.Count() - 1) { break; }
                 c++;
             }
+            System.Diagnostics.Debug.WriteLine("Closest Match = " + files[index]);
+
+            System.Diagnostics.Debug.WriteLine("Playing: " + files[index]);
 
             AutoClosingMessageBox.Show(files[index], "Playing", 3000);
 
-            return lines[index] ;
+            return files[index];
+        }
+
+        public string get_music(string final_music)
+        {
+            string songnotes = "";
+            MidiFile midifile = MidiFile.Read(final_music);
+            IEnumerable<Note> notes = midifile.GetNotes();
+            var tempoMap = midifile.GetTempoMap();
+            foreach (var p in notes)
+            {
+                long timeee = p.LengthAs<MetricTimeSpan>(tempoMap).Milliseconds;
+                System.Diagnostics.Debug.WriteLine(timeee);
+
+                //Console.WriteLine(p);
+                songnotes += p.NoteNumber.ToString() + " " + p.LengthAs<MetricTimeSpan>(tempoMap).Milliseconds.ToString() + " ";
+            }
+
+            return songnotes;
         }
 
         public Form1()
@@ -110,6 +132,8 @@ namespace NSCmusical
             InitializeComponent();
             _serialPort = new SerialPort("COM4", 9600);
             _serialPort.Open();
+
+
         }
         private void button1_Click(object sender, EventArgs e)
         {
@@ -120,11 +144,12 @@ namespace NSCmusical
             }
             AutoClosingMessageBox.Show(result, "Entered Note", 3000);
             string final_music = get_midifile(result);
-            AutoClosingMessageBox.Show(final_music, "Final Note", 3000);
+            string final_notes = get_music(final_music);
+            AutoClosingMessageBox.Show(final_notes, "Final Note", 3000);
 
             notes.Clear();
 
-            _serialPort.Write(final_music);
+            _serialPort.Write(final_notes);
         }
 
         private void key0_Click(object sender, EventArgs e)
