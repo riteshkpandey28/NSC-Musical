@@ -4,7 +4,7 @@ using FuzzySharp;
 using Melanchall.DryWetMidi.Multimedia;
 using System.IO.Ports;
 
-namespace NSCmusical
+namespace musical_synthesizer
 {
     public partial class Form1 : Form
     {
@@ -15,8 +15,8 @@ namespace NSCmusical
 
         public void reset()
         {
-            int y = 440;
-            int y2 = y + 388;
+            int y = 200;
+            int y2 = y + 635;
             int screenWidth = Screen.PrimaryScreen.Bounds.Width;
             int screenHeight = Screen.PrimaryScreen.Bounds.Height;
 
@@ -26,11 +26,12 @@ namespace NSCmusical
             int smallBtnWidth = buttonWidth - 10;
             int smallBtnHeight = buttonHeight - 100;
 
-            int animateHeight = screenHeight - buttonHeight - 7;
+            int animateHeight = screenHeight - buttonHeight;
 
-            this.label1.Location = new Point(screenWidth / 2 - buttonWidth*4, 20);
-            this.pictureBox1.Location = new Point(screenWidth/2 - buttonWidth, 80);
-            this.button1.Location = new Point(screenWidth / 2 - buttonWidth*4, 280);
+            this.label1.Location = new Point(screenWidth / 2 - buttonWidth * 4, 20);
+            this.pictureBox1.Location = new Point(screenWidth / 2 - buttonWidth, 80);
+            this.button1.Location = new Point(screenWidth / 2 - buttonWidth *6, 280);
+            this.stop_button.Location = new Point(screenWidth / 2 - buttonWidth * 6, 380);
 
             this.key_0.Location = new Point(0, 0);
             this.key_0.Size = new Size(buttonWidth, animateHeight);
@@ -38,106 +39,106 @@ namespace NSCmusical
             this.key_2.Location = new Point(buttonWidth, 0);
             this.key_2.Size = new Size(buttonWidth, animateHeight);
 
-            this.key_4.Location = new Point(buttonWidth*2, 0);
+            this.key_4.Location = new Point(buttonWidth * 2, 0);
             this.key_4.Size = new Size(buttonWidth, animateHeight);
 
-            this.key_5.Location = new Point(buttonWidth*3, 0);
+            this.key_5.Location = new Point(buttonWidth * 3, 0);
             this.key_5.Size = new Size(buttonWidth, animateHeight);
 
-            this.key_7.Location = new Point(buttonWidth*4, 0);
+            this.key_7.Location = new Point(buttonWidth * 4, 0);
             this.key_7.Size = new Size(buttonWidth, animateHeight);
 
-            this.key_9.Location = new Point(buttonWidth*5, 0);
+            this.key_9.Location = new Point(buttonWidth * 5, 0);
             this.key_9.Size = new Size(buttonWidth, animateHeight);
 
-            this.key_11.Location = new Point(buttonWidth*6, 0);
+            this.key_11.Location = new Point(buttonWidth * 6, 0);
             this.key_11.Size = new Size(buttonWidth, animateHeight);
 
-            this.key_12.Location = new Point(buttonWidth*7, 0);
+            this.key_12.Location = new Point(buttonWidth * 7, 0);
             this.key_12.Size = new Size(buttonWidth, animateHeight);
 
-            this.key_14.Location = new Point(buttonWidth*8, 0);
+            this.key_14.Location = new Point(buttonWidth * 8, 0);
             this.key_14.Size = new Size(buttonWidth, animateHeight);
 
-            this.key_16.Location = new Point(buttonWidth*9, 0);
+            this.key_16.Location = new Point(buttonWidth * 9, 0);
             this.key_16.Size = new Size(buttonWidth, animateHeight);
 
-            this.key_17.Location = new Point(buttonWidth*10, 0);
+            this.key_17.Location = new Point(buttonWidth * 10, 0);
             this.key_17.Size = new Size(buttonWidth, animateHeight);
 
-            this.key_19.Location = new Point(buttonWidth*11, 0);
+            this.key_19.Location = new Point(buttonWidth * 11, 0);
             this.key_19.Size = new Size(buttonWidth, animateHeight);
 
-            this.key_21.Location = new Point(buttonWidth*12, 0);
+            this.key_21.Location = new Point(buttonWidth * 12, 0);
             this.key_21.Size = new Size(buttonWidth, animateHeight);
 
-            this.key_23.Location = new Point(buttonWidth*13, 0);
+            this.key_23.Location = new Point(buttonWidth * 13, 0);
             this.key_23.Size = new Size(buttonWidth, animateHeight);
 
-            this.key_24.Location = new Point(buttonWidth*14, 0);
+            this.key_24.Location = new Point(buttonWidth * 14, 0);
             this.key_24.Size = new Size(buttonWidth, animateHeight);
 
-            this.key_26.Location = new Point(buttonWidth*15, 0);
+            this.key_26.Location = new Point(buttonWidth * 15, 0);
             this.key_26.Size = new Size(buttonWidth, animateHeight);
 
-            this.key_28.Location = new Point(buttonWidth*16, 0);
+            this.key_28.Location = new Point(buttonWidth * 16, 0);
             this.key_28.Size = new Size(buttonWidth, animateHeight);
 
-            this.key_29.Location = new Point(buttonWidth*17, 0);
+            this.key_29.Location = new Point(buttonWidth * 17, 0);
             this.key_29.Size = new Size(buttonWidth, animateHeight);
 
-            this.key_30.Location = new Point(buttonWidth*18, 0);
+            this.key_30.Location = new Point(buttonWidth * 18, 0);
             this.key_30.Size = new Size(buttonWidth, animateHeight);
 
-            this.key_33.Location = new Point(buttonWidth*19, 0);
+            this.key_33.Location = new Point(buttonWidth * 19, 0);
             this.key_33.Size = new Size(buttonWidth, animateHeight);
 
-            this.key_35.Location = new Point(buttonWidth*20, 0);
+            this.key_35.Location = new Point(buttonWidth * 20, 0);
             this.key_35.Size = new Size(buttonWidth, animateHeight);
 
-            this.key_36.Location = new Point(buttonWidth*21, 0);
+            this.key_36.Location = new Point(buttonWidth * 21, 0);
             this.key_36.Size = new Size(buttonWidth, animateHeight);
 
-            this.key_38.Location = new Point(buttonWidth*22, 0);
+            this.key_38.Location = new Point(buttonWidth * 22, 0);
             this.key_38.Size = new Size(buttonWidth, animateHeight);
 
-            this.key_40.Location = new Point(buttonWidth*23, 0);
+            this.key_40.Location = new Point(buttonWidth * 23, 0);
             this.key_40.Size = new Size(buttonWidth, animateHeight);
 
-            this.key_41.Location = new Point(buttonWidth*24, 0);
+            this.key_41.Location = new Point(buttonWidth * 24, 0);
             this.key_41.Size = new Size(buttonWidth, animateHeight);
 
-            this.key_43.Location = new Point(buttonWidth*25, 0);
+            this.key_43.Location = new Point(buttonWidth * 25, 0);
             this.key_43.Size = new Size(buttonWidth, animateHeight);
 
-            this.key_45.Location = new Point(buttonWidth*26, 0);
+            this.key_45.Location = new Point(buttonWidth * 26, 0);
             this.key_45.Size = new Size(buttonWidth, animateHeight);
 
-            this.key_47.Location = new Point(buttonWidth*27, 0);
+            this.key_47.Location = new Point(buttonWidth * 27, 0);
             this.key_47.Size = new Size(buttonWidth, animateHeight);
 
-            this.key_48.Location = new Point(buttonWidth*28, 0);
+            this.key_48.Location = new Point(buttonWidth * 28, 0);
             this.key_48.Size = new Size(buttonWidth, animateHeight);
 
-            this.key_50.Location = new Point(buttonWidth*29, 0);
+            this.key_50.Location = new Point(buttonWidth * 29, 0);
             this.key_50.Size = new Size(buttonWidth, animateHeight);
 
-            this.key_52.Location = new Point(buttonWidth*30, 0);
+            this.key_52.Location = new Point(buttonWidth * 30, 0);
             this.key_52.Size = new Size(buttonWidth, animateHeight);
 
-            this.key_53.Location = new Point(buttonWidth*31, 0);
+            this.key_53.Location = new Point(buttonWidth * 31, 0);
             this.key_53.Size = new Size(buttonWidth, animateHeight);
 
-            this.key_55.Location = new Point(buttonWidth*32, 0);
+            this.key_55.Location = new Point(buttonWidth * 32, 0);
             this.key_55.Size = new Size(buttonWidth, animateHeight);
 
-            this.key_57.Location = new Point(buttonWidth*33, 0);
+            this.key_57.Location = new Point(buttonWidth * 33, 0);
             this.key_57.Size = new Size(buttonWidth, animateHeight);
 
-            this.key_59.Location = new Point(buttonWidth*34, 0);
+            this.key_59.Location = new Point(buttonWidth * 34, 0);
             this.key_59.Size = new Size(buttonWidth, animateHeight);
 
-            this.key_60.Location = new Point(buttonWidth*35, 0);
+            this.key_60.Location = new Point(buttonWidth * 35, 0);
             this.key_60.Size = new Size(buttonWidth, animateHeight);
 
             this.key0.Location = new System.Drawing.Point(0, y);
@@ -146,106 +147,106 @@ namespace NSCmusical
             this.key2.Location = new System.Drawing.Point(buttonWidth, y);
             this.key2.Size = new System.Drawing.Size(buttonWidth, buttonHeight);
 
-            this.key4.Location = new System.Drawing.Point(buttonWidth*2, y);
+            this.key4.Location = new System.Drawing.Point(buttonWidth * 2, y);
             this.key4.Size = new System.Drawing.Size(buttonWidth, buttonHeight);
 
-            this.key5.Location = new System.Drawing.Point(buttonWidth*3, y);
+            this.key5.Location = new System.Drawing.Point(buttonWidth * 3, y);
             this.key5.Size = new System.Drawing.Size(buttonWidth, buttonHeight);
 
-            this.key7.Location = new System.Drawing.Point(buttonWidth*4, y);
+            this.key7.Location = new System.Drawing.Point(buttonWidth * 4, y);
             this.key7.Size = new System.Drawing.Size(buttonWidth, buttonHeight);
 
-            this.key9.Location = new System.Drawing.Point(buttonWidth*5, y);
+            this.key9.Location = new System.Drawing.Point(buttonWidth * 5, y);
             this.key9.Size = new System.Drawing.Size(buttonWidth, buttonHeight);
 
-            this.key11.Location = new System.Drawing.Point(buttonWidth*6, y);
+            this.key11.Location = new System.Drawing.Point(buttonWidth * 6, y);
             this.key11.Size = new System.Drawing.Size(buttonWidth, buttonHeight);
 
-            this.key12.Location = new System.Drawing.Point(buttonWidth*7, y);
+            this.key12.Location = new System.Drawing.Point(buttonWidth * 7, y);
             this.key12.Size = new System.Drawing.Size(buttonWidth, buttonHeight);
 
-            this.key14.Location = new System.Drawing.Point(buttonWidth*8, y);
+            this.key14.Location = new System.Drawing.Point(buttonWidth * 8, y);
             this.key14.Size = new System.Drawing.Size(buttonWidth, buttonHeight);
 
-            this.key16.Location = new System.Drawing.Point(buttonWidth*9, y);
+            this.key16.Location = new System.Drawing.Point(buttonWidth * 9, y);
             this.key16.Size = new System.Drawing.Size(buttonWidth, buttonHeight);
 
-            this.key17.Location = new System.Drawing.Point(buttonWidth*10, y);
+            this.key17.Location = new System.Drawing.Point(buttonWidth * 10, y);
             this.key17.Size = new System.Drawing.Size(buttonWidth, buttonHeight);
 
-            this.key19.Location = new System.Drawing.Point(buttonWidth*11, y);
+            this.key19.Location = new System.Drawing.Point(buttonWidth * 11, y);
             this.key19.Size = new System.Drawing.Size(buttonWidth, buttonHeight);
 
-            this.key21.Location = new System.Drawing.Point(buttonWidth*12, y);
+            this.key21.Location = new System.Drawing.Point(buttonWidth * 12, y);
             this.key21.Size = new System.Drawing.Size(buttonWidth, buttonHeight);
 
-            this.key23.Location = new System.Drawing.Point(buttonWidth*13, y);
+            this.key23.Location = new System.Drawing.Point(buttonWidth * 13, y);
             this.key23.Size = new System.Drawing.Size(buttonWidth, buttonHeight);
 
-            this.key24.Location = new System.Drawing.Point(buttonWidth*14, y);
+            this.key24.Location = new System.Drawing.Point(buttonWidth * 14, y);
             this.key24.Size = new System.Drawing.Size(buttonWidth, buttonHeight);
 
-            this.key26.Location = new System.Drawing.Point(buttonWidth*15, y);
+            this.key26.Location = new System.Drawing.Point(buttonWidth * 15, y);
             this.key26.Size = new System.Drawing.Size(buttonWidth, buttonHeight);
 
-            this.key28.Location = new System.Drawing.Point(buttonWidth*16, y);
+            this.key28.Location = new System.Drawing.Point(buttonWidth * 16, y);
             this.key28.Size = new System.Drawing.Size(buttonWidth, buttonHeight);
 
-            this.key29.Location = new System.Drawing.Point(buttonWidth*17, y);
+            this.key29.Location = new System.Drawing.Point(buttonWidth * 17, y);
             this.key29.Size = new System.Drawing.Size(buttonWidth, buttonHeight);
 
-            this.key30.Location = new System.Drawing.Point(buttonWidth*18, y);
+            this.key30.Location = new System.Drawing.Point(buttonWidth * 18, y);
             this.key30.Size = new System.Drawing.Size(buttonWidth, buttonHeight);
 
-            this.key33.Location = new System.Drawing.Point(buttonWidth*19, y);
+            this.key33.Location = new System.Drawing.Point(buttonWidth * 19, y);
             this.key33.Size = new System.Drawing.Size(buttonWidth, buttonHeight);
 
-            this.key35.Location = new System.Drawing.Point(buttonWidth*20, y);
+            this.key35.Location = new System.Drawing.Point(buttonWidth * 20, y);
             this.key35.Size = new System.Drawing.Size(buttonWidth, buttonHeight);
 
-            this.key36.Location = new System.Drawing.Point(buttonWidth*21, y);
+            this.key36.Location = new System.Drawing.Point(buttonWidth * 21, y);
             this.key36.Size = new System.Drawing.Size(buttonWidth, buttonHeight);
 
-            this.key38.Location = new System.Drawing.Point(buttonWidth*22, y);
+            this.key38.Location = new System.Drawing.Point(buttonWidth * 22, y);
             this.key38.Size = new System.Drawing.Size(buttonWidth, buttonHeight);
 
-            this.key40.Location = new System.Drawing.Point(buttonWidth*23, y);
+            this.key40.Location = new System.Drawing.Point(buttonWidth * 23, y);
             this.key40.Size = new System.Drawing.Size(buttonWidth, buttonHeight);
 
-            this.key41.Location = new System.Drawing.Point(buttonWidth*24, y);
+            this.key41.Location = new System.Drawing.Point(buttonWidth * 24, y);
             this.key41.Size = new System.Drawing.Size(buttonWidth, buttonHeight);
 
-            this.key43.Location = new System.Drawing.Point(buttonWidth*25, y);
+            this.key43.Location = new System.Drawing.Point(buttonWidth * 25, y);
             this.key43.Size = new System.Drawing.Size(buttonWidth, buttonHeight);
 
-            this.key45.Location = new System.Drawing.Point(buttonWidth*26, y);
+            this.key45.Location = new System.Drawing.Point(buttonWidth * 26, y);
             this.key45.Size = new System.Drawing.Size(buttonWidth, buttonHeight);
 
-            this.key47.Location = new System.Drawing.Point(buttonWidth*27, y);
+            this.key47.Location = new System.Drawing.Point(buttonWidth * 27, y);
             this.key47.Size = new System.Drawing.Size(buttonWidth, buttonHeight);
 
-            this.key48.Location = new System.Drawing.Point(buttonWidth*28, y);
+            this.key48.Location = new System.Drawing.Point(buttonWidth * 28, y);
             this.key48.Size = new System.Drawing.Size(buttonWidth, buttonHeight);
 
-            this.key50.Location = new System.Drawing.Point(buttonWidth*29, y);
+            this.key50.Location = new System.Drawing.Point(buttonWidth * 29, y);
             this.key50.Size = new System.Drawing.Size(buttonWidth, buttonHeight);
 
-            this.key52.Location = new System.Drawing.Point(buttonWidth*30, y);
+            this.key52.Location = new System.Drawing.Point(buttonWidth * 30, y);
             this.key52.Size = new System.Drawing.Size(buttonWidth, buttonHeight);
 
-            this.key53.Location = new System.Drawing.Point(buttonWidth*31, y);
+            this.key53.Location = new System.Drawing.Point(buttonWidth * 31, y);
             this.key53.Size = new System.Drawing.Size(buttonWidth, buttonHeight);
 
-            this.key55.Location = new System.Drawing.Point(buttonWidth*32, y);
+            this.key55.Location = new System.Drawing.Point(buttonWidth * 32, y);
             this.key55.Size = new System.Drawing.Size(buttonWidth, buttonHeight);
 
-            this.key57.Location = new System.Drawing.Point(buttonWidth*33, y);
+            this.key57.Location = new System.Drawing.Point(buttonWidth * 33, y);
             this.key57.Size = new System.Drawing.Size(buttonWidth, buttonHeight);
 
-            this.key59.Location = new System.Drawing.Point(buttonWidth*34, y);
+            this.key59.Location = new System.Drawing.Point(buttonWidth * 34, y);
             this.key59.Size = new System.Drawing.Size(buttonWidth, buttonHeight);
 
-            this.key60.Location = new System.Drawing.Point(buttonWidth*35, y);
+            this.key60.Location = new System.Drawing.Point(buttonWidth * 35, y);
             this.key60.Size = new System.Drawing.Size(buttonWidth, buttonHeight);
 
             this.key1.Location = new System.Drawing.Point((int)(buttonWidth * 0.5), y2);
@@ -398,11 +399,11 @@ namespace NSCmusical
             this.key_12.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(34)))), ((int)(((byte)(40)))), ((int)(((byte)(49)))));
             this.key_14.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(34)))), ((int)(((byte)(40)))), ((int)(((byte)(49)))));
             this.key_16.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(34)))), ((int)(((byte)(40)))), ((int)(((byte)(49)))));
-            this.key_17.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(34)))), ((int)(((byte)(40)))), ((int)(((byte)(49))))); 
-            this.key_19.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(34)))), ((int)(((byte)(40)))), ((int)(((byte)(49))))); 
+            this.key_17.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(34)))), ((int)(((byte)(40)))), ((int)(((byte)(49)))));
+            this.key_19.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(34)))), ((int)(((byte)(40)))), ((int)(((byte)(49)))));
             this.key_21.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(34)))), ((int)(((byte)(40)))), ((int)(((byte)(49)))));
             this.key_23.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(34)))), ((int)(((byte)(40)))), ((int)(((byte)(49)))));
-            this.key_24.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(34)))), ((int)(((byte)(40)))), ((int)(((byte)(49))))); 
+            this.key_24.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(34)))), ((int)(((byte)(40)))), ((int)(((byte)(49)))));
             this.key_26.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(34)))), ((int)(((byte)(40)))), ((int)(((byte)(49)))));
             this.key_28.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(34)))), ((int)(((byte)(40)))), ((int)(((byte)(49)))));
             this.key_29.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(34)))), ((int)(((byte)(40)))), ((int)(((byte)(49)))));
@@ -428,12 +429,12 @@ namespace NSCmusical
 
         public string get_midifile(string result)
         {
-            string[] files = Directory.GetFiles(@"C:\Users\rites\source\repos\NSCmusical\songfiles\");
+            string[] files = Directory.GetFiles(@"C:\Users\Admin\source\repos\musical synthesizer\songfiles\");
 
             System.Diagnostics.Debug.WriteLine("Total midi files = " + files.Count());
             string unknown_notes = result;
             int c = 0;
-            var lines = File.ReadAllLines(@"C:\Users\rites\source\repos\NSCmusical\notes_array.txt");
+            var lines = File.ReadAllLines(@"C:\Users\Admin\source\repos\musical synthesizer\notes_array.txt");
             int max = 0;
             int index = 0;
             foreach (var line in lines)
@@ -496,7 +497,7 @@ namespace NSCmusical
             InitializeComponent();
             this.FormBorderStyle = FormBorderStyle.None;
             this.WindowState = FormWindowState.Maximized;
-            
+
             reset();
             _serialPort = new SerialPort("COM4", 9600);
             _serialPort.Open();
@@ -513,9 +514,31 @@ namespace NSCmusical
             string final_notes = get_music(final_music);
 
             notes.Clear();
+            
 
-            _serialPort.Write(final_notes);
-            play_music(final_music);
+            var thread = new Thread(() =>
+            {
+                _serialPort.Write(final_notes);
+                play_music(final_music);
+
+            });
+            thread.IsBackground = true;
+            thread.Start();
+
+             //_serialPort.Write(final_notes);
+             //play_music(final_music);
+        }
+
+        private void stop_button_Click_1(object sender, EventArgs e)
+        {
+            Application.Restart();
+            Environment.Exit(0);
+        }
+
+        private void stop_button_Click(object sender, EventArgs e)
+        {
+            Application.Restart();
+            Environment.Exit(0);
         }
 
         private void key0_Click(object sender, EventArgs e)
@@ -995,5 +1018,7 @@ namespace NSCmusical
         {
 
         }
+
+        
     }
 }
